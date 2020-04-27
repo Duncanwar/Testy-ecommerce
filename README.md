@@ -1,2 +1,2 @@
-# Testy-ecommerce
-Building fullstack ecommerce with js,node js,express and postgres
+# Testy-eCommerce
+Building fullstack eCommerce with js,node js,express and postgres
