@@ -1,33 +1,37 @@
 {
-  "name": "testy-ecommerce",
+  "name": "blog-backend",
   "version": "1.0.0",
-  "description": "Building fullstack ecommerce with js,node js,express and postgres",
-  "main": "app.js",
-  "module": "main.js",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Duncanwar/Testy-ecommerce.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Duncanwar/Testy-ecommerce/issues"
-  },
-  "homepage": "https://github.com/Duncanwar/Testy-ecommerce#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "ejs": "^3.1.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.11.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "lodash": "^4.17.19",
-    "nodemon": "^2.0.3",
-    "path": "^0.12.7"
+    "husky": "^4.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.4.0",
+    "mongoose": "^5.10.9",
+    "prettier": "^2.1.2"
   },
-  "devDependencies": {
-    "eslint": "^6.8.0"
-  }
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*{js,md}": [
+      "prettier --trailing-comma es5 --single-quote --write"
+    ]
+  },
+  "repository": "https://github.com/Duncanwar/blog-backend.git",
+  "author": "Duncanwar <semunda9@gmail.com>",
+  "description": "my brand backend"
 }
