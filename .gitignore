@@ -1,1 +1,6 @@
+dist-src
 node_modules
+.nyc_output
+yarn.lock
+yarn-error.log
+.env
