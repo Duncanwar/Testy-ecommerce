@@ -4,21 +4,26 @@ import responses from '../utils/responses';
 import message from '../utils/customMessage';
 import statusCode from '../utils/statusCode';
 
-const {verifyToken,hashPassword,generateToken} = helpers;
-const {ok, created} = statusCode;
-const {userCreated} = message;
-const {createUser} = UserService;
-const {successResponse,errorResponse} = responses;
+const { hashPassword, generateToken } = helpers;
+const { ok, created } = statusCode;
+const { userCreated, userLogin } = message;
+const { createUser, getUserByIdOrEmail } = UserService;
+const { successResponse, updateResponse } = responses;
 
 export default class UserController {
+  static async signup(req, res) {
+    const inputFormData = req.body;
+    const textPassword = inputFormData.password;
+    inputFormData.password = hashPassword(textPassword);
+    const user = await createUser(inputFormData);
+    const token = generateToken(user);
+    return successResponse(res, created, token, userCreated);
+  }
 
-    static async signup(req,res){
-        const inputFormData = req.body;
-        const textPassword = inputFormData.password;
-        inputFormData.password = hashPassword(textPassword);
-        const user = await createUser(inputFormData);
-        const token = generateToken(user);
-        return successResponse(res,created,token,userCreated,user)
-    }
-  
+  static async login(req, res) {
+    const inputFormData = req.body;
+    const user = await getUserByIdOrEmail(inputFormData.email);
+    const token = generateToken(user);
+    return successResponse(res, ok, token, userLogin);
+  }
 }
