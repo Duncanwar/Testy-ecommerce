@@ -6,7 +6,7 @@ const dbConnection = async () => {
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true,
-    });
+    })
   } catch (error) {
     throw new Error(error);
   }
