@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "blog-backend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -31,5 +31,6 @@
     ]
   },
   "repository": "https://github.com/Duncanwar/blog-backend.git",
-  "author": "Duncanwar <semunda9@gmail.com>"
+  "author": "Duncanwar <semunda9@gmail.com>",
+  "description": "my brand backend"
 }
