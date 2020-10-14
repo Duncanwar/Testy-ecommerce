@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import routes from './routes/index';
 import cors from 'cors';
-import dbConnection from './config/dbConfig';
+import dbConnection from './database/dbConfig';
 
 dotenv.config();
 dbConnection();

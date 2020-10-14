@@ -1,4 +1,5 @@
-import User from '../models/user.model';
+import User from '../database/models/user.model';
+import 'regenerator-runtime/runtime';
 
 /**
  * @description This service deals with the User model

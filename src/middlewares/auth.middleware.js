@@ -7,7 +7,7 @@ import statusCode from '../utils/statusCode';
 const { getUserByIdOrEmail } = UserService;
 const { errorResponse } = responses;
 const { loginFail, userExist } = messages;
-const { badRequest } = statusCode;
+const { badRequest, conflict } = statusCode;
 const { comparePassword } = helpers;
 
 const checkEmailExist = (email) => {
@@ -19,7 +19,7 @@ const userDuplicationAccount = async (req, res, next) => {
   if (!user) {
     return next();
   }
-  return errorResponse(res, badRequest, userExist);
+  return errorResponse(res, conflict, userExist);
 };
 
 const checkLoginCredentials = async (req, res, next) => {
