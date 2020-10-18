@@ -14,8 +14,4 @@ export default {
     email: 'user1@user.com',
     password: 'Password1!234',
   },
-  wronguser: {
-    email: 'user1@user1.com',
-    password: 'Password1!',
-  },
 };

@@ -10,6 +10,9 @@ const { userCreated, userLogin } = message;
 const { createUser, getUserByIdOrEmail } = UserService;
 const { successResponse, updateResponse } = responses;
 
+/**
+ * @description this controller deals with user services
+ */
 export default class UserController {
   static async signup(req, res) {
     const inputFormData = req.body;
