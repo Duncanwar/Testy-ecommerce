@@ -8,7 +8,7 @@ import 'regenerator-runtime/runtime';
 export default class UserServices {
   /**
    * @description this service create a new query in the db
-   * @param {object} query
+   * @param {object} query message sent by the user via my portofolio
    */
   static async createQuery(query) {
     return await Query.create(query);
