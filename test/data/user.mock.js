@@ -3,6 +3,7 @@ export default {
     name: 'user1',
     email: 'user1@user.com',
     password: 'Password1!',
+    role: 'user',
   },
   user1Login: {
     email: 'user1@user.com',

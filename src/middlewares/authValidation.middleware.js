@@ -6,7 +6,7 @@ import loginFormValidation from '../validators/login.validation';
 import signupValidation from '../validators/signup.validation';
 
 const { errorResponse } = responses;
-const { unAuthorized } = statusCode;
+const { unAuthorized, badRequest } = statusCode;
 
 const validateSignup = (req, res, next) => {
   const { name, password, email } = req.body;
@@ -16,11 +16,7 @@ const validateSignup = (req, res, next) => {
     email,
   });
   if (validateInp.error) {
-    return errorResponse(
-      res,
-      unAuthorized,
-      validateInp.error.details[0].message
-    );
+    return errorResponse(res, badRequest, validateInp.error.details[0].message);
   }
   return next();
 };
@@ -31,7 +27,7 @@ const validateLogin = (req, res, next) => {
     email,
   });
   if (validateInp.error) {
-    return errorResponse(res, unAuthorized, validateInp.error);
+    return errorResponse(res, badRequest, validateInp.error);
   }
   return next();
 };

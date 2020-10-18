@@ -8,11 +8,11 @@ chai.should();
 
 const { user1, user1Login, userEmpty, user1wrongcredetianls } = userMock;
 
-describe('Login/Signup Test', () => {
+describe('User Test', () => {
   it('Should create a user', (done) => {
     chai
       .request(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send(user1)
       .end((err, res) => {
         const { token, message } = res.body;
@@ -26,27 +26,51 @@ describe('Login/Signup Test', () => {
   it('Should not duplicate user by same email', (done) => {
     chai
       .request(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send(user1)
       .end((err, res) => {
         const { token, message } = res.body;
         expect(res.status).to.equal(409);
+        expect(message);
+        done();
+      });
+  });
+
+  it('Login user by email', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/login')
+      .send(user1Login)
+      .end((err, res) => {
+        const { token, message } = res.body;
+        expect(res.status).to.equal(200);
         expect(message);
         expect(token).to.be.a('string');
         done();
       });
   });
 
-  it('Should not duplicate user by same email', (done) => {
+  it('Should not allow empty ', (done) => {
     chai
       .request(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send(userEmpty)
       .end((err, res) => {
         const { token, message } = res.body;
-        expect(res.status).to.equal(409);
+        expect(res.status).to.equal(400);
         expect(message);
-        expect(token).to.be.a('string');
+        done();
+      });
+  });
+  it('Should not allow user by wrong email', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/login')
+      .send(user1wrongcredetianls)
+      .end((err, res) => {
+        const { token, message } = res.body;
+        expect(res.status).to.equal(400);
+        expect(message);
         done();
       });
   });
