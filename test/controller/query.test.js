@@ -8,25 +8,10 @@ chai.use(chaiHttp);
 chai.should();
 
 const { query, queryWithWrongEmail, emptyQuery } = queryMock;
-const { adminLogin, user2Login, adminRegister, user2 } = userMock;
+const { adminLogin, user2Login, user2 } = userMock;
 let adminToken;
 
 describe('Query Testing', () => {
-  it('Create admin', (done) => {
-    chai
-      .request(app)
-      .post('/api/v1/signup')
-      .send(adminRegister)
-      .end((err, res) => {
-        const { token, message } = res.body;
-        adminToken = token;
-        expect(res.status).to.equal(201);
-        expect(message);
-        expect(token).to.be.a('string');
-        done();
-      });
-  });
-
   it('Login admin by email', (done) => {
     chai
       .request(app)

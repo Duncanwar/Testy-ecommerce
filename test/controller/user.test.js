@@ -6,15 +6,9 @@ import userMock from '../data/user.mock';
 chai.use(chaiHttp);
 chai.should();
 
-const {
-  user1,
-  user1Login,
-  userEmpty,
-  adminRegister,
-  user1wrongcredetianls,
-} = userMock;
+const { user1, user1Login, userEmpty, user1wrongcredetianls } = userMock;
 
-describe('Login/Signup Test', () => {
+describe('User Test', () => {
   it('Should create a user', (done) => {
     chai
       .request(app)
