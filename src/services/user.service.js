@@ -9,6 +9,7 @@ export default class UserServices {
   /**
    * @description this service create a new user in the db
    * @param {object} user
+   * @returns {object} return the created user
    */
   static async createUser(user) {
     const newUser = User.create(user);
@@ -17,6 +18,7 @@ export default class UserServices {
   /**
    * @description this service get a user in the db by email or Id
    * @param {String} data
+   * @returns {object} returns one user searched by using Id
    */
   static async getUserById(id) {
     return await User.findById(id).select('-password');
@@ -24,6 +26,7 @@ export default class UserServices {
   /**
    * @description this service get a user in the db by email or Id
    * @param {String} data
+   * @returns {object} returns one user searched by using email
    */
   static async getUserByEmail(email) {
     return await User.findOne({ email: email });
