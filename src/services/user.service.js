@@ -16,15 +16,16 @@ export default class UserServices {
   }
   /**
    * @description this service get a user in the db by email or Id
-   * @param {String} id
+   * @param {String} data
    */
-  static async getUserByIdOrEmail(data) {
-    let user;
-    if (typeof data === 'string') {
-      user = await User.findOne({ email: data });
-      return user;
-    }
-    user = awaitUser.findOne({ _id: data });
-    return user;
+  static async getUserById(id) {
+    return await User.findById(id).select('-password');
+  }
+  /**
+   * @description this service get a user in the db by email or Id
+   * @param {String} data
+   */
+  static async getUserByEmail(email) {
+    return await User.findOne({ email: email });
   }
 }

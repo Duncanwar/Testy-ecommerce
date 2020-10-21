@@ -7,7 +7,7 @@ import statusCode from '../utils/statusCode';
 const { hashPassword, generateToken } = helpers;
 const { ok, created } = statusCode;
 const { userCreated, userLogin } = message;
-const { createUser, getUserByIdOrEmail } = UserService;
+const { createUser, getUserByEmail } = UserService;
 const { successResponse, updateResponse } = responses;
 
 /**
@@ -25,7 +25,7 @@ export default class UserController {
 
   static async login(req, res) {
     const inputFormData = req.body;
-    const user = await getUserByIdOrEmail(inputFormData.email);
+    const user = await getUserByEmail(inputFormData.email);
     const token = generateToken(user);
     return successResponse(res, ok, token, userLogin);
   }

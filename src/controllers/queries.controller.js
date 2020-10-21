@@ -6,7 +6,7 @@ import statusCode from '../utils/statusCode';
 const { ok, created } = statusCode;
 const { querySent, queryRetrieve } = message;
 const { createQuery, getQueries } = QueryService;
-const { successResponse, updateResponse } = responses;
+const { successResponse } = responses;
 /**
  * @description this controller deals with queries service
  */

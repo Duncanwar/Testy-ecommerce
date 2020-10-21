@@ -13,7 +13,7 @@ export default async (req, res, next) => {
   const token = authorization.replace('Bearer ', '');
   const payload = verifyToken(token);
   const { _id } = payload;
-  const role = await getUserById(_id);
+  const role = await (await getUserById(_id)).get('role');
   req.User = payload;
   req.User.role = role;
   return next();
