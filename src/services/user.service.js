@@ -30,4 +30,12 @@ export default class UserServices {
   static async getUserByEmail(email) {
     return await User.findOne({ email: email });
   }
+  /**
+   * @description this service get a user in the db by email or Id
+   * @param {String} data
+   * @returns {object} returns updated user using email
+   */
+  static async updateUserById(req, id) {
+    return await User.findByIdAndUpdate(id, { $set: req.body }, { new: true });
+  }
 }
