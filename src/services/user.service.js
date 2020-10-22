@@ -4,7 +4,6 @@ import 'regenerator-runtime/runtime';
 /**
  * @description This service deals with the User model
  */
-
 export default class UserServices {
   /**
    * @description this service create a new user in the db

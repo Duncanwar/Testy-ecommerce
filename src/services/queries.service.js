@@ -4,7 +4,6 @@ import 'regenerator-runtime/runtime';
 /**
  * @description This service deals with the Query model
  */
-
 export default class UserServices {
   /**
    * @description this service create a new query in the db
@@ -14,7 +13,7 @@ export default class UserServices {
     return await Query.create(query);
   }
   /**
-   * @description this service get all queries in db
+   * @description this service gets all queries in db
    */
   static async getQueries() {
     return await Query.find();

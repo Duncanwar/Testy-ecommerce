@@ -13,10 +13,10 @@ const { validateSignup, validateLogin } = validations;
 router.post('/signup', [validateSignup, userDuplicationAccount], signup);
 router.post('/login', [validateLogin, checkLoginCredentials], login);
 
-router.patch('/update/userInfo/', [tokenAuthentication], (req, res) => {
-  res.status(200).json({
-    message: 'update user info',
-  });
-});
+// router.patch('/update/userInfo/', [tokenAuthentication], (req, res) => {
+//   res.status(200).json({
+//     message: 'update user info',
+//   });
+//});
 
 export default router;

@@ -26,10 +26,11 @@ const validateLogin = (req, res, next) => {
     email,
   });
   if (validateInp.error) {
-    return errorResponse(res, badRequest, validateInp.error);
+    return errorResponse(res, badRequest, validateInp.error.details[0].message);
   }
   return next();
 };
+
 export default {
   validateLogin,
   validateSignup,
