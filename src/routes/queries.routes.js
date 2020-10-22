@@ -13,4 +13,5 @@ router.get(
   [tokenAuthentication, checkIfHasAdminPrivilege],
   retrieveQuery
 );
+
 export default router;

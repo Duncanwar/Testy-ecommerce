@@ -53,7 +53,6 @@ describe('Article Testing', () => {
         adminToken = token;
         expect(res.status).to.equal(201);
         expect(message);
-        expect(token).to.be.a('string');
         done();
       });
   });
@@ -91,8 +90,8 @@ describe('Article Testing', () => {
   //   chai
   //     .request(app)
   //     .patch(`/api/v1/articles/${articleId}`)
-  //   .set('authorization', `Bearer ${adminToken}`)
-  //     //.send({ updatedAt: new Date().toISOString() })
+  //     .set('authorization', `Bearer ${adminToken}`)
+  //     .send({ updatedAt: new Date().toISOString() })
   //     .end((err, res) => {
   //       const { data, message } = res.body;
   //       expect(res.status).to.equal(200);

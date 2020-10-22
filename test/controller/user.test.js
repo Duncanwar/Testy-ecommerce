@@ -4,7 +4,6 @@ import app from '../../src/app';
 import userMock from '../data/user.mock';
 
 chai.use(chaiHttp);
-chai.should();
 
 const { user1, user1Login, userEmpty, user1wrongcredetianls } = userMock;
 
