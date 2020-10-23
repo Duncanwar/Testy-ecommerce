@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import articleRoutes from './article.routes';
 import queriesRoutes from './queries.routes';
-import userInfoRoutes from './user.routes';
+import user from './user.routes';
+import 'regenerator-runtime/runtime';
 
 dotenv.config();
 
@@ -12,6 +13,6 @@ const baseUrl = `/api/${apiVersion}`;
 
 router.use(baseUrl, articleRoutes);
 router.use(baseUrl, queriesRoutes);
-router.use(baseUrl, userInfoRoutes);
+router.use(baseUrl, user);
 
 export default router;
