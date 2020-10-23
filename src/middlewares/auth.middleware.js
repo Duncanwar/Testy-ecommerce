@@ -20,6 +20,7 @@ const userDuplicationAccount = async (req, res, next) => {
 
 const checkLoginCredentials = async (req, res, next) => {
   const user = await getUserByEmail(req.body.email);
+
   const boolPassword = user
     ? await comparePassword(req.body.password, user.password)
     : null;

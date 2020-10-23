@@ -10,6 +10,7 @@ export default class UserServices {
    * @description this service create a new user in the db
    * @param {object} user
    * @returns {object} return the created user
+
    */
   static async createUser(user) {
     const newUser = User.create(user);
@@ -17,7 +18,7 @@ export default class UserServices {
   }
   /**
    * @description this service get a user in the db by email or Id
-   * @param {String} data
+   * @param {String} id
    * @returns {object} returns one user searched by using Id
    */
   static async getUserById(id) {
