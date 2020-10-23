@@ -1,11 +1,16 @@
 import express from 'express';
+import QueryController from '../controllers/queries.controller';
+import { validateContact } from '../middlewares/contactValidation.middleware';
+import tokenAuthentication from '../middlewares/tokenAuthentication';
+import { checkIfHasAdminPrivilege } from '../middlewares/contact.middleware';
 
 const router = express.Router();
+const { sendQuery, retrieveQuery } = QueryController;
 
-router.get('/queries', (req, res) => {
-  res.json({
-    message: 'queries',
-  });
-});
-
+router.post('/queries', validateContact, sendQuery);
+router.get(
+  '/queries',
+  [tokenAuthentication, checkIfHasAdminPrivilege],
+  retrieveQuery
+);
 export default router;

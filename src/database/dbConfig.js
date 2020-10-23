@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const dbConnection = async () => {
+const dbConnection = () => {
   const connection = (dbUrl) => {
     mongoose.connect(dbUrl, {
       useNewUrlParser: true,
