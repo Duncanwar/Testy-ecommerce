@@ -3,7 +3,6 @@ import chaiHttp from 'chai-http';
 import app from '../../src/app';
 
 chai.use(chaiHttp);
-chai.should();
 
 describe('Welcome to endPoints Testing', () => {
   it('Should return a message confirming api connection', (done) => {

@@ -9,6 +9,10 @@ export default {
     email: 'user1@user.com',
     password: 'Password1!',
   },
+  user1LoginFakePassword: {
+    email: 'user1@user.com',
+    password: 'password1!',
+  },
   userEmpty: {},
   user1wrongcredetianls: {
     email: 'user1@user.com',
