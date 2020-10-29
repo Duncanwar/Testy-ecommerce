@@ -26,7 +26,7 @@ export default class UserController {
     inputFormData.password = hashPassword(textPassword);
     const user = await createUser(inputFormData);
     const token = generateToken(user);
-    return successResponse(res, created, token, userCreated, undefined);
+    return successResponse(res, created, token, userCreated, user);
   }
   /**
    * @description this controller logs in a user in the blog
@@ -36,8 +36,8 @@ export default class UserController {
    */
   static async login(req, res) {
     const inputFormData = req.body;
-    const user = await getUserByEmail(inputFormData.email);
+    let user = await getUserByEmail(inputFormData.email);
     const token = generateToken(user);
-    return successResponse(res, ok, token, userLogin, undefined);
+    return successResponse(res, ok, token, userLogin, user);
   }
 }

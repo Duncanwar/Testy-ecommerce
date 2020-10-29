@@ -20,10 +20,9 @@ describe('Article Testing', () => {
       .send(adminRegister)
       .end((err, res) => {
         const { token, message } = res.body;
-        // adminToken = token;
-        expect(res.status).to.equal(201);
+        expect(res.status).to(201);
         expect(message);
-        // expect(token).to.be.a('string');
+        expect(token).to.be.a('string');
         done();
       });
   });
