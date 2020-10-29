@@ -29,7 +29,8 @@ export default class UserServices {
    * @returns {object} returns one user searched by using email
    */
   static async getUserByEmail(email) {
-    return await User.findOne({ email: email });
+    const user = await User.findOne({ email: email });
+    return user;
   }
   /**
    * @description this service get a user in the db by email or Id
