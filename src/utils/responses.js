@@ -35,14 +35,7 @@ const errorResponse = (res, code, error) => {
  * @param {string} message update message
  * @returns {object} returns json object
  */
-const updateResponse = (res,code, message) => {
-    res.status(code).json({
-        message
-    })
-}
-
 export default {
   successResponse,
   errorResponse,
-  updateResponse,
 };
